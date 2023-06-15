@@ -1,0 +1,50 @@
+{
+  "manifestVersion": 1,
+  "id": "build-release-task",
+  "name": "manif",
+  "version": "0.0.100",
+  "publisher": "avinash-live-pr",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Get live PR for your docker instance. Deploy your docker instance on your own AWS account.",
+  "categories": ["Azure Pipelines"],
+  "icons": {
+    "default": "images/extension-icon.png"
+  },
+  "files": [
+    {
+      "path": "task"
+    }
+  ],
+  "links": {
+    "overview": {
+      "uri": "https://github.com/Avi98/mono-review"
+    },
+    "repository": {
+      "uri": "https://github.com/Avi98/mono-review"
+    },
+    "home": {
+      "uri": "https://github.com/Avi98/mono-review"
+    },
+    "issues": {
+      "uri": "https://github.com/Avi98/mono-review/issues"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "uri": "https://github.com/Avi98/mono-review"
+  },
+  "contributions": [
+    {
+      "id": "custom-build-release-task",
+      "type": "ms.vss-distributed-task.task",
+      "targets": ["ms.vss-distributed-task.tasks"],
+      "properties": {
+        "name": "task"
+      }
+    }
+  ]
+}
