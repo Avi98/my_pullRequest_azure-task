@@ -3,11 +3,6 @@
   "restartable": "rs",
   "ignore": [".git", "node_modules/", "dist/", "coverage/"],
   "watch": ["task/"],
-
-  "exec": "tsc -p . && bash ../../scripts/dev.sh && node .dist/task/index.js",
-  "env": {
-    "NODE_ENV": "develop"
-  },
-
+  "exec": "tsc -p . && node .dist/task/src/index.js",
   "ext": "js,json,ts"
 }

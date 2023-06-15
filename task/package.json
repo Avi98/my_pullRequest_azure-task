@@ -2,12 +2,21 @@
   "name": "my_pullRequest_azure-task",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
+  "main": ".dist/task/src/index.esm.js",
+  "module": "./dist/task/src/index.esm.js",
+  "source": "task/src/index.ts",
   "preinstall": "npx only-allow pnpm",
+  "exports": {
+    "default": "./dist/task/src/index.esm.mjs"
+  },
   "scripts": {
+    "dev": "nodemon --config nodemon.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "pack:task:v1": "bash ./script/pack.sh v1",
-    "create:task": "pnpm pack:task:v1 && tfx extension create --root . --manifest-globs  --output-path ./.dist"
+    "build": "tsc",
+    "mv:assets": "bash ../script/pack.sh",
+    "pack:task:v1": "pnpm run build && pnpm run mv:assets",
+    "create:task": "pnpm pack:task:v1 && tfx extension create --root './.dist' --manifest ./.dist/vss-extension.json --output-path .dist --bypass-validation"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +26,7 @@
     "@types/node": "^20.3.1",
     "@types/q": "^1.5.5",
     "@types/sshpk": "^1.17.1",
+    "microbundle": "^0.15.1",
     "nodemon": "^2.0.22",
     "tfx-cli": "^0.15.0",
     "ts-node": "^10.9.1",

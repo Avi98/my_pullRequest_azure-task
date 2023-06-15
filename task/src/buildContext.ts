@@ -1,7 +1,7 @@
 import { join } from "path";
 import dotenv from "dotenv";
-import { env } from "@pr/aws-core";
 import tl from "azure-pipelines-task-lib";
+import { env } from "./aws-core/index.js";
 
 dotenv.config();
 const isDev = env.isDev;

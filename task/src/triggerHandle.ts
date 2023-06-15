@@ -1,9 +1,9 @@
-import { Instance, LunchServer, env } from "@pr/aws-core";
 import { ApiClient } from "./api/index.js";
 import type { Threads } from "./api/index.js";
 import { mapPrStatusToText } from "./util/mapPRStatus.js";
 import { castGitConfig } from "./util/castBuildConfig.js";
 import { BuildContextType, buildContext } from "./buildContext.js";
+import { Instance, LunchServer, env } from "./aws-core/index.js";
 
 class TriggerHandle {
   static TRIGGER_LABEL = "live-pr";

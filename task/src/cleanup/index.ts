@@ -1,6 +1,6 @@
-import { Instance } from "@pr/aws-core";
 import { ApiClient } from "../api/index.js";
 import { PullRequestStatus } from "azure-devops-node-api/interfaces/GitInterfaces.js";
+import { Instance } from "../aws-core/index.js";
 
 export class CleanUpLoseInstance {
   private static DEAD_PULL_REQUEST_STATUS = [

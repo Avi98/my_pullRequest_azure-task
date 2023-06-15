@@ -1,7 +1,7 @@
 import dotenv from "dotenv";
-
 dotenv.config();
 
+console.log({ env: process.env.NODE_ENV });
 const castEnv = <T = string>({
   env,
   name,

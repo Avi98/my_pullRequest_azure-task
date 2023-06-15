@@ -1,7 +1,6 @@
 import { WebApi, getPersonalAccessTokenHandler } from "azure-devops-node-api";
 import { BuildContextType, buildContext } from "../buildContext.js";
 import { GitPullRequestCommentThread } from "azure-devops-node-api/interfaces/GitInterfaces.js";
-import { threadId } from "worker_threads";
 
 export type Threads = GitPullRequestCommentThread;
 
@@ -151,7 +150,7 @@ export class ApiClient {
           commentPayload,
           this.buildCtx.repoId,
           Number(this.buildCtx.prId),
-          threadId,
+          comment.threadId,
           comment.commentId
         )
         .then((res) => {

@@ -1,4 +1,4 @@
-import { IGitConfig } from "@pr/aws-core";
+import { IGitConfig } from "../aws-core/index.js";
 import { BuildContextType } from "../buildContext.js";
 
 export const castGitConfig = (buildContext: BuildContextType): IGitConfig => {

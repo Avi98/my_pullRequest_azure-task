@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
-  "id": "768c64c9-e091-40ce-8840-4d99f8c4382a",
+  "id": "a3c12ab9-4b21-4243-bf43-7e953921f7c9",
   "name": "Live-Pull-Request",
   "friendlyName": "Live pull request",
   "description": "deploy pull request, view changes and on live pr for all your docker images",
@@ -10,12 +10,13 @@
   "version": {
     "Major": 1,
     "Minor": 0,
-    "Patch": 89
+    "Patch": 10
   },
   "instanceNameFormat": "Echo Live-Pull-Request-PR-$(System.PullRequest.PullRequestNumber)",
   "execution": {
     "Node16": {
-      "target": "index.js"
+      "target": "./src/index.js",
+      "argumentFormat": ""
     }
   }
 }
