@@ -1,0 +1,8 @@
+{
+  "copiedFrom": "https://talohana.com/blog/typescript-and-nodemon-the-ultimate-setup",
+  "restartable": "rs",
+  "ignore": [".git", "node_modules/", "dist/", "coverage/"],
+  "watch": ["task/"],
+  "exec": "tsc -p . && node .dist/task/src/index.js",
+  "ext": "js,json,ts"
+}

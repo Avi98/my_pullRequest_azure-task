@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "id": "a3c12ab9-4b21-4243-bf43-7e953921f7c9",
+  "name": "Live-Pull-Request",
+  "friendlyName": "Live pull request",
+  "description": "deploy pull request, view changes and on live pr for all your docker images",
+  "helpMarkDown": "",
+  "category": "Utility",
+  "author": "Avinash",
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 19
+  },
+  "instanceNameFormat": "Echo Live-Pull-Request-PR-$(System.PullRequest.PullRequestNumber)",
+  "execution": {
+    "Node16": {
+      "target": "./src/index.js",
+      "argumentFormat": ""
+    }
+  }
+}
