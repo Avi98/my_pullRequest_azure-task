@@ -26,3 +26,4 @@ coverage
 **.**.vsix
 .taskkey
 private_file
+temp_app

@@ -1,11 +1,7 @@
 #!/bin/bash
 
-cp -R ../images .dist  
-cp -p ../vss-extension.json .dist 
-cp -p task.json .dist/task 
-cp -p package.json .dist/task
-cp -p pnpm-lock.yaml .dist/task
-cp -p .npmrc .dist/task
+cp -R ../images ../vss-extension.json .dist
+cp -p task.json package.json npm-lock.yaml .npmrc ../uploadScript .dist/task 
 
 echo "installing packages for bundle"
 (

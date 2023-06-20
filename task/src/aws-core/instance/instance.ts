@@ -1,10 +1,10 @@
 import { EC2Client, InstanceStateName, Reservation } from "@aws-sdk/client-ec2";
 import { $, execa } from "execa";
 import { existsSync } from "fs";
+import { fileURLToPath } from "url";
 import { dirname, resolve } from "path";
 import { InstanceCmdFactories } from "./instanceFactories.js";
 import { createPrivateKeyFile, polling } from "./utils.js";
-import { fileURLToPath } from "url";
 import { env } from "../index.js";
 
 type InstanceConfigType = {
