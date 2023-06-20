@@ -2,7 +2,7 @@
   "manifestVersion": 1,
   "id": "build-release-task",
   "name": "manif",
-  "version": "0.0.14",
+  "version": "0.0.23",
   "publisher": "avinash-live-pr",
   "targets": [
     {

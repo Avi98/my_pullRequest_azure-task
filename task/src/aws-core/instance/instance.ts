@@ -1,10 +1,10 @@
 import { EC2Client, InstanceStateName, Reservation } from "@aws-sdk/client-ec2";
 import { $, execa } from "execa";
 import { existsSync } from "fs";
-import { dirname, resolve } from "path";
+import { fileURLToPath } from "url";
+import { dirname, join, resolve } from "path";
 import { InstanceCmdFactories } from "./instanceFactories.js";
 import { createPrivateKeyFile, polling } from "./utils.js";
-import { fileURLToPath } from "url";
 import { env } from "../index.js";
 
 type InstanceConfigType = {
@@ -302,10 +302,9 @@ export class Instance implements IInstance {
   async mvStartScriptToServer() {
     try {
       const startScript = this.getStartUpScript();
-      console.log({ startScript });
 
       if (!existsSync(startScript))
-        throw new Error("Docker Start script not found");
+        throw new Error("Docker Startup script not found");
       await this.scp({ source: startScript, target: "/etc/prbranch" });
       //@TODO change the dockerimage tag based on the pullRequest and commit sha
       await this.ssh(`cd /etc/prbranch && sh upload.sh -a /app -g pullpreview`);
@@ -320,7 +319,8 @@ export class Instance implements IInstance {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = dirname(__filename);
 
-    return resolve(__dirname, "../../../../core/upload.sh");
+    const path = resolve(__dirname, "../../../uploadScript/upload.sh");
+    return path;
   }
 
   get liveInstUrl() {
