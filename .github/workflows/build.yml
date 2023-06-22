@@ -1,0 +1,38 @@
+name: build-test-azure-extension
+on: [push]
+
+# test workflow
+
+jobs:
+  builds:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@v3
+
+      - name: setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 7.21.0
+
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "19.9.0"
+
+      - name: install packages
+        run: |
+          (cd task && pnpm i)
+
+      - name: build packages & create azure-extensions
+        run: |
+          echo "build and package"
+          (
+           cd task && pnpm create:task
+          )
+
+      - name: upload extension artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: azure-pr-review-extension
+          path: ./task/.dist/azure-artifact

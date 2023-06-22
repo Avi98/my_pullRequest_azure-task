@@ -16,7 +16,7 @@
     "build": "tsc",
     "mv:assets": "bash ../script/pack.sh",
     "pack:task:v1": "pnpm run build && pnpm run mv:assets",
-    "create:task": "pnpm pack:task:v1 && tfx extension create --root './.dist' --manifest ./.dist/vss-extension.json --output-path .dist --bypass-validation"
+    "create:task": "pnpm pack:task:v1 && tfx extension create --root './.dist' --manifest ./.dist/vss-extension.json --output-path .dist/azure-artifact"
   },
   "keywords": [],
   "author": "",
